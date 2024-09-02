@@ -335,3 +335,49 @@
     word-wrap: break-word;
   }
   
+  /*////////////////////////////////////////////////////////////////*/
+/*Alert messages*/
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px;
+    animation: fadeInOut 3s forwards;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 0;
+  }
+  
+  .alert-success {
+    background-color: white; 
+    color: black;
+    font-weight: 500;
+    border-bottom:7px solid #e4c916; 
+  }
+  
+  .alert-danger {
+    background-color: #e35c5c;
+    color: white;
+    border: #e35c5c;
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    10% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    90% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
