@@ -56,7 +56,7 @@ function EventsAdmin() {
   async function loadEventCategories() {
     try {
       const result = await axios.get(
-        "https://localhost:7137/api/EventCategories/GetAllList"
+        "https://localhost:7214/api/EventCategories/GetAllList"
       );
       setEventCategories(result.data);
     } catch (err) {
@@ -67,7 +67,7 @@ function EventsAdmin() {
   async function loadEventThemes() {
     try {
       const result = await axios.get(
-        "https://localhost:7137/api/EventThemes/GetAllList"
+        "https://localhost:7214/api/EventThemes/GetAllList"
       );
       setEventThemes(result.data);
     } catch (err) {
@@ -78,7 +78,7 @@ function EventsAdmin() {
   async function loadEvents() {
     try {
       const result = await axios.get(
-        "https://localhost:7137/api/Events/GetAllList"
+        "https://localhost:7214/api/Events/GetAllList"
       );
       setEvents(result.data);
     } catch (err) {
@@ -91,7 +91,7 @@ function EventsAdmin() {
   async function save(event) {
     event.preventDefault();
     try {
-      await axios.post("https://localhost:7137/api/Events/Add", {
+      await axios.post("https://localhost:7214/api/Events/Add", {
         eventName: eventName,
         description: description,
         image: image,
@@ -139,7 +139,7 @@ function EventsAdmin() {
 
   async function deleteEvents(eventId) {
     try {
-      await axios.delete(`https://localhost:7137/api/Events/Delete?Id=${eventId}`);
+      await axios.delete(`https://localhost:7214/api/Events/Delete?Id=${eventId}`);
       showAlert("The event has been successfully deleted!", "alert-success");
       clearForm();
       loadEvents();
@@ -154,7 +154,7 @@ function EventsAdmin() {
     event.preventDefault();
     try {
       const event = events.find((p) => p.id === id);
-      await axios.put(`https://localhost:7137/api/Events/Update/${event.id}`, {
+      await axios.put(`https://localhost:7214/api/Events/Update/${event.id}`, {
         id: event.id,
         eventName: eventName,
         description: description,

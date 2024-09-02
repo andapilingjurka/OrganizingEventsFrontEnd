@@ -37,7 +37,7 @@ function EventCategoriesAdmin() {
   async function Load() {
     try {
       const result = await axios.get(
-        "https://localhost:7137/api/EventCategories/GetAllList"
+        "https://localhost:7214/api/EventCategories/GetAllList"
       );
       setEventCategories(result.data);
       console.log(result.data);
@@ -49,7 +49,7 @@ function EventCategoriesAdmin() {
   async function save(event) {
     event.preventDefault();
     try {
-      await axios.post("https://localhost:7137/api/EventCategories/Add", {
+      await axios.post("https://localhost:7214/api/EventCategories/Add", {
         categoryName: categoryName,
         description: description,
       });
@@ -73,7 +73,7 @@ function EventCategoriesAdmin() {
 
   async function deleteEventCategories(id) {
     try {
-      await axios.delete(`https://localhost:7137/api/EventCategories/Delete?Id=${id}`);
+      await axios.delete(`https://localhost:7214/api/EventCategories/Delete?Id=${id}`);
       showAlert("The event category has been successfully deleted!", "alert-success");
       setCategoryName("");
       setDescription("");
@@ -88,7 +88,7 @@ function EventCategoriesAdmin() {
     try {
       const eventCategory = eventCategories.find((p) => p.id === id);
       await axios.put(
-        `https://localhost:7137/api/EventCategories/Update/${eventCategory.id}`,
+        `https://localhost:7214/api/EventCategories/Update/${eventCategory.id}`,
         {
           id: eventCategory.id,
           categoryName: categoryName,

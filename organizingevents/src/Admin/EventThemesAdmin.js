@@ -39,7 +39,7 @@ function EventThemesAdmin() {
   async function Load() {
     try {
       const result = await axios.get(
-        "https://localhost:7137/api/EventThemes/GetAllList"
+        "https://localhost:7214/api/EventThemes/GetAllList"
       );
       setEventThemes(result.data);
     } catch (err) {
@@ -50,7 +50,7 @@ function EventThemesAdmin() {
   async function save(event) {
     event.preventDefault();
     try {
-      await axios.post("https://localhost:7137/api/EventThemes/Add", {
+      await axios.post("https://localhost:7214/api/EventThemes/Add", {
         themeName: themeName,
         description: description,
       });
@@ -74,7 +74,7 @@ function EventThemesAdmin() {
 
   async function deleteEventThemes(id) {
     try {
-      await axios.delete(`https://localhost:7137/api/EventThemes/Delete?Id=${id}`);
+      await axios.delete(`https://localhost:7214/api/EventThemes/Delete?Id=${id}`);
       showAlert("The event theme has been successfully deleted!", "alert-success");
       setId("");
       setThemeName("");
@@ -90,7 +90,7 @@ function EventThemesAdmin() {
     try {
       const eventTheme = eventThemes.find((p) => p.id === id);
       await axios.put(
-        `https://localhost:7137/api/EventThemes/Update/${eventTheme.id}`,
+        `https://localhost:7214/api/EventThemes/Update/${eventTheme.id}`,
         {
           id: eventTheme.id,
           themeName: themeName,
