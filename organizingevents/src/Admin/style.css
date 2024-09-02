@@ -176,3 +176,162 @@
     background-color: #333744; 
     color:  #d32f2f; 
   }
+
+  /*////////////////////////////////////////////////////////////////*/
+/*Table in dashboard*/
+.form-group input{
+    width: 550px;
+    font-size: 13px;
+    border: 2px solid #12112f;
+  }
+  
+  .form-group label{
+    color: #000;
+    font-family: "Unbounded", sans-serif;
+    font-size: 14px;
+  }
+  
+  .form-group select {
+    width: 550px;
+    font-size: 13px;
+    border: 2px solid #12112f;
+  }
+  
+  h4 {
+    color: #000;
+    font-family: "Unbounded", sans-serif;
+    font-size: 21px;
+    text-transform: uppercase;
+  }
+  
+  .btn-add{
+    color: #fff;
+    background-color: #ffbf00;
+    font-family: "Unbounded", sans-serif;
+    font-size: 15px;
+  }
+  
+  .btn-add:hover{
+    border: 3px solid #ffbf00;
+    color: #ffbf00;
+  }
+  
+  .btn-save{
+    margin-left: 50px;
+    border: 3px solid #00573F;
+    color: #00573F;
+    font-weight: bold;
+    font-family: "Unbounded", sans-serif;
+    font-size: 13px;
+  }
+  
+  .btn-save:hover{
+    background-color: #00573F;
+    color: #fff;
+  }
+  
+  .btn-update{
+    margin-left: 20px;
+    border: 3px solid #ffc107;
+    color: #ffbf00;
+    font-weight: bold;
+    font-family: "Unbounded", sans-serif;
+    font-size: 13px;
+  }
+  
+  .btn-update:hover{
+    background-color: #ffc107;
+    color: #fff;
+  }
+  
+  .btn-cancel{
+    margin-left: 20px;
+    border:3px solid #888787;
+    color: #888787;
+    font-weight: bold;
+    font-family: "Unbounded", sans-serif;
+    font-size: 13px;
+  }
+  
+  .btn-cancel:hover{
+    background-color: #888787;
+    color: #fff;
+  }
+  
+  
+  .table-responsive {
+    overflow: hidden; 
+  }
+  
+  .table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(167, 166, 166, 0.8); 
+  
+  }
+  
+  .table th{
+    text-transform: uppercase;
+    color: #fff;
+    padding: 15px 0;
+    border: 3px solid #fff;
+    background-color: #12112f;
+    font-family: "Unbounded", sans-serif;
+    font-size: 12px;
+  }
+  
+  .table th,
+  .table td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .table td {
+    background-color: #ffffff;
+    font-size: 14px;
+    vertical-align: middle;
+    min-height: 60px;
+  }
+  
+  .table td .btn {
+    text-transform: uppercase;
+    margin: 0 auto;
+  }
+  
+  .btn-edit{
+    border:3px solid #ffbf00;
+    color: #ffbf00;
+    font-weight: bold;
+    font-family: "Unbounded", sans-serif;
+    font-size: 14px;
+    text-transform: none !important;
+  }
+  
+  .btn-edit:hover{
+    color: #fff;
+    background-color: #ffbf00;
+  }
+  
+  .btn-delete{
+    color: #b12929;
+    border: 3px solid #b12929;
+    font-weight: bold;
+    font-family: "Unbounded", sans-serif;
+    font-size: 14px;
+    text-transform: none !important;
+   
+  }
+  
+  .btn-delete:hover{
+    color: #fff;
+    background-color: #b12929;
+  }
+  
+  
+  .table .description-cell {
+    max-width: 150px; 
+    white-space: normal; 
+    word-wrap: break-word;
+  }
+  
