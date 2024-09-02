@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Dashboard />} />
         <Route path="/eventsAdmin" element={<EventsAdmin />} />
         <Route path="/eventThemesAdmin" element={<EventThemesAdmin />} />
         <Route path="/eventCategoriesAdmin" element={<EventCategoriesAdmin />} />

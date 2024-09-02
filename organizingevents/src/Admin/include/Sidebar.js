@@ -11,8 +11,8 @@ function Sidebar() {
       <div className="logo m-1">
         <FaUserShield className="admin-icon" /> {/* Admin icon */}
         <Link
-          to="/dashboard"
-          className={`dashboard-link ${location.pathname === "/dashboard" ? "active-link" : ""}`}
+          to="/"
+          className={`dashboard-link ${location.pathname === "/" ? "active-link" : ""}`}
         >
           DASHBOARD
         </Link> {/* Dashboard link */}
