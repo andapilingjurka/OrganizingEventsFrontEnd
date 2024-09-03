@@ -1,22 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  LineElement,
-  PointElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, LineElement, PointElement, ArcElement, Title, Tooltip,Legend,} from "chart.js";
 import { Line, Bar, Doughnut } from "react-chartjs-2";
 import Navbar from "./include/Navbar";
 import Sidebar from "./include/Sidebar";
 import "./style.css";
-import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap is imported
+import "bootstrap/dist/css/bootstrap.min.css"; 
 
 // Register Chart.js components
 ChartJS.register(
@@ -41,27 +30,28 @@ function Dashboard() {
 
   // Sample data for charts
   const data = {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    labels: ["June", "July", "August", "September", "October", "November"],
     datasets: [
       {
-        label: "Revenue",
-        data: [300, 50, 100, 200, 150, 75],
+        label: "Data",
+        data: [410, 550, 610 , 415, 250, 180],
         backgroundColor: [
-          "rgba(255, 99, 132, 0.6)",
-          "rgba(54, 162, 235, 0.6)",
-          "rgba(255, 206, 86, 0.6)",
-          "rgba(75, 192, 192, 0.6)",
-          "rgba(153, 102, 255, 0.6)",
-          "rgba(255, 159, 64, 0.6)"
+          "rgba(0, 123, 255, 0.6)", 
+          "rgba(23, 162, 184, 0.6)", 
+          "rgba(255, 193, 7, 0.6)",  
+          "rgba(220, 53, 69, 0.6)",  
+          "rgba(40, 167, 69, 0.6)",  
+          "rgba(255, 87, 34, 0.6)"   
         ],
         borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-          "rgba(255, 159, 64, 1)"
-        ],
+          "rgba(0, 123, 255, 1)", 
+          "rgba(23, 162, 184, 1)", 
+          "rgba(255, 193, 7, 1)",  
+          "rgba(220, 53, 69, 1)",  
+          "rgba(40, 167, 69, 1)",  
+          "rgba(255, 87, 34, 1)"  
+        ]
+        ,        
         borderWidth: 1,
       },
     ],
