@@ -182,7 +182,6 @@ function Dashboard() {
                           </div>
                         </div>
                       </div>
-                      {/* Add more event cards as needed */}
                     </div>
                   </div>
                 </div>
