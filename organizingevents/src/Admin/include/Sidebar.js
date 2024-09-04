@@ -77,6 +77,15 @@ function Sidebar() {
           {/* Mongo DB*/}
 
           <Link
+            to="/restaurantsAdmin"
+            className={`list-group-item py-2 rounded ${
+              location.pathname === "/restaurantsAdmin" ? "active-link" : ""
+            }`}
+          >
+            <FaConciergeBell className="fs-5 me-3" /> <span>Restaurants</span>
+        </Link>
+
+          <Link
             to="/restaurantTypesAdmin"
             className={`list-group-item py-2 rounded ${
               location.pathname === "/restaurantTypesAdmin" ? "active-link" : ""
@@ -85,7 +94,7 @@ function Sidebar() {
           <FaUtensils className="fs-5 me-3" /> <span>Restaurant Types</span>
         </Link>
 
-        
+
         <br/>
         <br/>
         <br/>
