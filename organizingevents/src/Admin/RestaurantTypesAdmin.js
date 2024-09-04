@@ -120,6 +120,149 @@ function RestaurantTypesAdmin() {
 
   /////////////////////////////////////////////////////////
   
+  return (
+    <div
+      className="container-fluid"
+      style={{
+        backgroundColor: "#fff",
+        minHeight: "100vh",
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="row">
+        {toggle && (
+          <div className="col-4 col-md-2 bg-white vh-100 position-fixed">
+            <Sidebar />
+          </div>
+        )}
+
+        <div className="col-4 col-md-2"></div>
+        <div className="col">
+          <Navbar Toggle={Toggle} />
+
+          <div className="d-flex justify-content-between align-items-center mt-4 px-5">
+            <h4 className="text-dark">Data for Restaurant Types</h4>
+            <button className="btn btn-add d-flex align-items-center" onClick={toggleFormVisibility}>
+              <i className="fas fa-plus me-2"></i>
+              Add
+            </button>
+          </div>
+
+
+          {isFormVisible && (
+            <div className="container mt-4 text-white align-item-center">
+              <form>
+                <div className="form-group px-5 ">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="id"
+                    hidden
+                    value={id}
+                    onChange={(restaurantType) => {
+                      setId(restaurantType.target.value);
+                    }}
+                  />
+
+                  <label className="label">Name:</label>
+                  <input
+                    type="text"
+                    className="form-control mb-3"
+                    id="name"
+                    value={name}
+                    onChange={(restaurantType) => {
+                      setName(restaurantType.target.value);
+                    }}
+                  />
+
+                  <label className="label">Description:</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="description"
+                    value={description}
+                    onChange={(restaurantType) => {
+                      setDescription(restaurantType.target.value);
+                    }}
+                  />
+                </div>
+
+                <div className="mt-3">
+                  <button className="btn btn-save" onClick={save}>
+                    Save
+                  </button>
+                  <button
+                    className="btn btn-update"
+                    onClick={update}
+                  >
+                    Update
+                  </button>
+                  <button
+                    className="btn btn-cancel "
+                    onClick={cancel}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          )}
+
+          <br />
+
+          {isAlertVisible && (
+            <div
+              className={`alert ${alertType}`}
+            >
+              {alertMessage}
+            </div>
+          )}
+
+          <div className="table-responsive m-4 px-4">
+            <table className="table border-gray">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Options</th>
+                </tr>
+              </thead>
+              <tbody>
+                {restaurantTypes.map((restaurantType) => (
+                  <tr key={restaurantType.id}>
+                    <td>{restaurantType.id}</td>
+                    <td>{restaurantType.name}</td>
+                    <td className="description-cell">{restaurantType.description}</td>
+                    <td className="options-cell d-flex justify-content-center align-items-center">
+                      <button
+                        type="button"
+                        className="btn btn-edit mx-2 d-flex align-items-center"
+                        onClick={() => editRestaurantTypes(restaurantType)}
+                      >
+                        <i className="fas fa-edit"></i>
+                        <span className="ms-2">Edit</span>
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-delete mx-2 d-flex align-items-center"
+                        onClick={() => deleteRestaurantTypes(restaurantType.id)}
+                      >
+                        <i className="fas fa-trash-alt"></i>
+                        <span className="ms-2">Delete</span>
+                      </button>
+                    </td>
+
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
 }
 
 export default RestaurantTypesAdmin;
