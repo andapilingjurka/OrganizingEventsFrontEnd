@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaUserShield, FaHome, FaUsers, FaCalendarDay, FaTag, FaListAlt, FaSignOutAlt } from "react-icons/fa";
+import { FaUserShield, FaHome, FaUsers, FaCalendarDay, FaTag, FaListAlt, FaSignOutAlt, FaConciergeBell, FaUtensils } from "react-icons/fa";
 import "../style.css";
 
 function Sidebar() {
