@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaUserShield, FaHome, FaUsers, FaCalendarDay, FaTag, FaListAlt, FaSignOutAlt, FaConciergeBell, FaUtensils } from "react-icons/fa";
+import { FaUserShield, FaHome, FaUsers, FaCalendarDay, FaTag, FaListAlt, FaSignOutAlt, FaUserTie } from "react-icons/fa";  // Import FaUserTie for StaffAdmin
 import "../style.css";
 
 function Sidebar() {
@@ -73,33 +73,20 @@ function Sidebar() {
           <FaCalendarDay className="fs-5 me-3" /> <span>Reservations</span>
         </Link>
 
-
-          {/* Mongo DB*/}
-
-          <Link
-            to="/restaurantsAdmin"
-            className={`list-group-item py-2 rounded ${
-              location.pathname === "/restaurantsAdmin" ? "active-link" : ""
-            }`}
-          >
-            <FaConciergeBell className="fs-5 me-3" /> <span>Restaurants</span>
+        {/* Add StaffAdmin Link */}
+        <Link
+          to="/staffAdmin"
+          className={`list-group-item py-2 rounded ${
+            location.pathname === "/staffAdmin" ? "active-link" : ""
+          }`}
+        >
+          <FaUserTie className="fs-5 me-3" /> <span>Staff</span>
         </Link>
 
-          <Link
-            to="/restaurantTypesAdmin"
-            className={`list-group-item py-2 rounded ${
-              location.pathname === "/restaurantTypesAdmin" ? "active-link" : ""
-            }`}
-          >
-          <FaUtensils className="fs-5 me-3" /> <span>Restaurant Types</span>
-        </Link>
-
-
         <br/>
         <br/>
         <br/>
         <br/>
-
 
         {/* Logout Link */}
         <Link
