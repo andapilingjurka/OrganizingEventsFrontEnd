@@ -39,7 +39,7 @@ function RestaurantTypesAdmin() {
   async function Load() {
     try {
       const result = await axios.get(
-        "https://localhost:7137/api/RestaurantTypes/GetAllList"
+        "https://localhost:7214/api/RestaurantTypes/GetAllList"
       );
       setRestaurantTypes(result.data);
     } catch (err) {
@@ -50,7 +50,7 @@ function RestaurantTypesAdmin() {
   async function save(restaurantType) {
     restaurantType.preventDefault();
     try {
-      await axios.post("https://localhost:7137/api/RestaurantTypes/Add", {
+      await axios.post("https://localhost:7214/api/RestaurantTypes/Add", {
         name: name,
         description: description,
       });
@@ -74,7 +74,7 @@ function RestaurantTypesAdmin() {
 
   async function deleteRestaurantTypes(id) {
     try {
-      await axios.delete(`https://localhost:7137/api/RestaurantTypes/Delete/${id}`);
+      await axios.delete(`https://localhost:7214/api/RestaurantTypes/Delete/${id}`);
       showAlert("The restaurant type has been successfully deleted!", "alert-success");
       setId("");
       setName("");
@@ -90,7 +90,7 @@ function RestaurantTypesAdmin() {
     try {
       const restaurantType = restaurantTypes.find((p) => p.id === id);
       await axios.put(
-        `https://localhost:7137/api/RestaurantTypes/Update/${restaurantType.id}`,
+        `https://localhost:7214/api/RestaurantTypes/Update/${restaurantType.id}`,
         {
           id: restaurantType.id,
           name: name,
