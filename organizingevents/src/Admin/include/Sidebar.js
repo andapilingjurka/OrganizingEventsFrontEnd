@@ -73,6 +73,19 @@ function Sidebar() {
           <FaCalendarDay className="fs-5 me-3" /> <span>Reservations</span>
         </Link>
 
+
+          {/* Mongo DB*/}
+
+          <Link
+            to="/restaurantTypesAdmin"
+            className={`list-group-item py-2 rounded ${
+              location.pathname === "/restaurantTypesAdmin" ? "active-link" : ""
+            }`}
+          >
+          <FaUtensils className="fs-5 me-3" /> <span>Restaurant Types</span>
+        </Link>
+
+        
         <br/>
         <br/>
         <br/>
