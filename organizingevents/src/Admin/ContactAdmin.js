@@ -190,9 +190,7 @@ function ContactAdmin() {
                   <button className="btn btn-save" onClick={save}>
                     Save
                   </button>
-                  <button className="btn btn-update" onClick={update}>
-                    Update
-                  </button>
+                  
                   <button className="btn btn-cancel" onClick={cancel}>
                     Cancel
                   </button>
@@ -222,14 +220,7 @@ function ContactAdmin() {
                     <td>{contact.email}</td>
                     <td>{contact.message}</td>
                     <td className="options-cell d-flex justify-content-center align-items-center">
-                      <button
-                        type="button"
-                        className="btn btn-edit mx-2 d-flex align-items-center"
-                        onClick={() => editContact(contact)}
-                      >
-                        <i className="fas fa-edit"></i>
-                        <span className="ms-2">Edit</span>
-                      </button>
+                      
                       <button
                         type="button"
                         className="btn btn-delete mx-2 d-flex align-items-center"
