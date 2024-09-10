@@ -181,6 +181,7 @@ function ContactAdmin() {
                   <textarea
                     className="form-control mb-3"
                     id="message"
+                    rows={6}
                     value={message}
                     onChange={(event) => setMessage(event.target.value)}
                   />

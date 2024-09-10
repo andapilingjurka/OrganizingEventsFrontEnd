@@ -185,6 +185,12 @@
     border: 2px solid #12112f;
   }
   
+  .form-group textarea{
+    width: 550px;
+    font-size: 13px;
+    border: 2px solid #12112f;
+  }
+
   .form-group label{
     color: #000;
     font-family: "Unbounded", sans-serif;
