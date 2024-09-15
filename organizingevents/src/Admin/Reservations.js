@@ -262,6 +262,7 @@ function Reservations() {
                   <th scope="col">Total Price</th>
                   <th scope="col">User ID</th>
                   <th scope="col">Event ID</th>
+                  <th scope="col">Options</th>
                 </tr>
               </thead>
               <tbody>
