@@ -13,13 +13,17 @@ import ContactAdmin from './Admin/ContactAdmin';
 import Users from "./Admin/Users";
 import Reservations from "./Admin/Reservations"
 
+import Home from "./User/Home/Home";
+
 
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        
+        {/*Admin Part*/}
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/eventsAdmin" element={<EventsAdmin />} />
         <Route path="/eventThemesAdmin" element={<EventThemesAdmin />} />
         <Route path="/eventCategoriesAdmin" element={<EventCategoriesAdmin />} />
@@ -29,6 +33,11 @@ function App() {
         <Route path="/contactAdmin" element={<ContactAdmin />} />
         <Route path="/users" element={<Users />} />
         <Route path="/reservations" element={<Reservations/>} />
+
+
+          {/*User Part*/}
+          <Route path="/" element={<Home />} />
+
       </Routes>
     </Router>
   );
