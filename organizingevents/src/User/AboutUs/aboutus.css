@@ -22,7 +22,7 @@
 
  /* Mission section */
 .aboutus-mission {
-    padding: 4rem 0;
+    padding: 4rem 8rem;
     margin-top: 30px;
   }
   
@@ -41,7 +41,7 @@
   }
   
   .mission-text p {
-    font-size: 1.2rem;
+    font-size: 17px;
     line-height: 1.6;
   }
   
@@ -72,7 +72,7 @@
   }
   
   .aboutus-history p {
-    font-size: 1.2rem;
+    font-size: 16.5px;
     max-width: 1200px;
     margin: 0 auto;
     line-height: 1.6;
