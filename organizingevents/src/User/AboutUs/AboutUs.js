@@ -1,8 +1,8 @@
 // AboutUs.js
 import React from 'react';
 import Navbar from '../include/Navbar';
-import Footer from '../include/Footer';
-import './AboutUs.css';
+// import Footer from '../include/Footer';
+import './aboutus.css';
 
 
 const AboutUs = () => {
@@ -12,7 +12,7 @@ const AboutUs = () => {
       
      
 
-      { <Footer /> }
+      {/* { <Footer /> } */}
     </div>
   );
 };

@@ -14,6 +14,8 @@ import Users from "./Admin/Users";
 import Reservations from "./Admin/Reservations"
 
 import Home from "./User/Home/Home";
+import AboutUs from "./User/AboutUs/aboutus";
+
 
 
 
@@ -37,7 +39,7 @@ function App() {
 
           {/*User Part*/}
           <Route path="/" element={<Home />} />
-
+          <Route path="/aboutus" element={<AboutUs />} />
       </Routes>
     </Router>
   );
