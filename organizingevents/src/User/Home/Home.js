@@ -6,7 +6,6 @@ import './Home.css';
 
 import weddings from '../images/wedding.jpg'; 
 import birthday from '../images/birthday.jpg'; 
-import topimage from '../images/top-image.jpg'; 
 import engagement from '../images/engagement.jpg'; 
 import imgpng from '../images/image-png.png'; 
 import event1 from '../images/event1.jpeg'; 
