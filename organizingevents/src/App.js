@@ -15,6 +15,7 @@ import Reservations from "./Admin/Reservations"
 
 import Home from "./User/Home/Home";
 import AboutUs from "./User/AboutUs/aboutus";
+import RestaurantList from "./User/Restaurants/RestaurantList";
 
 
 
@@ -40,6 +41,7 @@ function App() {
           {/*User Part*/}
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/restaurantlist" element={<RestaurantList/>} />
       </Routes>
     </Router>
   );
