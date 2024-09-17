@@ -16,6 +16,7 @@ import Reservations from "./Admin/Reservations"
 import Home from "./User/Home/Home";
 import AboutUs from "./User/AboutUs/aboutus";
 import RestaurantList from "./User/Restaurants/RestaurantList";
+import RestaurantDetails from "./User/Restaurants/RestaurantDetails";
 
 
 
@@ -42,6 +43,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/restaurantlist" element={<RestaurantList/>} />
+          <Route path="/restaurant/:id" element={<RestaurantDetails />} />
+
       </Routes>
     </Router>
   );
