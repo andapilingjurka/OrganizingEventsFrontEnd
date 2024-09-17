@@ -21,12 +21,13 @@
   }
   
   .logo-home {
-    height: 80px; 
+    height: 74px; 
     width: auto; 
     margin: 0;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 5px;
   }
   
   .icons {
@@ -47,7 +48,7 @@
   .navbar-bottom {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 5px;
   }
   
   .nav-list {
