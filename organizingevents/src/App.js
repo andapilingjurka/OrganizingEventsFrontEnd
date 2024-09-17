@@ -19,6 +19,7 @@ import RestaurantList from "./User/Restaurants/RestaurantList";
 import RestaurantDetails from "./User/Restaurants/RestaurantDetails";
 import EventList from "./User/Events/EventList";
 import EventDetails from "./User/Events/EventDetails";
+import StaffList from "./User/Staff/StaffList";
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/restaurant/:id" element={<RestaurantDetails />} />
           <Route path="/eventlist" element={<EventList />} />
           <Route path="/event/:id" element={<EventDetails />} />
+          <Route path="/stafflist" element={<StaffList />} />
 
       </Routes>
     </Router>
