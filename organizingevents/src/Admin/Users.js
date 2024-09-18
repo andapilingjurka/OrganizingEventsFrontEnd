@@ -18,6 +18,7 @@ function Users() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [roleId, setRoleId] = useState("");
+  const [Roles, setRoles] = useState([]); // Për rolet
 
   const [alertMessage, setAlertMessage] = useState("");
   const [alertType, setAlertType] = useState("");
@@ -36,9 +37,11 @@ function Users() {
   useEffect(() => {
     (async () => {
       await loadUsers();
+      await loadRoles(); // Thirrja për të marrë rolet
     })();
   }, []);
 
+  // Ngarko të gjithë përdoruesit
   async function loadUsers() {
     try {
       const result = await axios.get("https://localhost:7214/api/Users/GetAllList");
@@ -48,9 +51,28 @@ function Users() {
     }
   }
 
+  // Ngarko të gjitha rolet
+  async function loadRoles() {
+    try {
+      const result = await axios.get("https://localhost:7214/api/Roles/GetAllList"); // Endpoin për rolet
+      setRoles(result.data);
+    } catch (err) {
+      console.error("Error loading roles:", err);
+    }
+  }
+
+  // Ruaj përdoruesin e ri
   async function save(e) {
     e.preventDefault(); // Prevent default form submission
     try {
+      console.log({
+        firstName: FirstName,
+        lastName: LastName,
+        email: Email,
+        password: Password,
+        roleId: roleId,
+      });
+
       await axios.post("https://localhost:7214/api/Users/Register", {
         firstName: FirstName,
         lastName: LastName,
@@ -58,35 +80,41 @@ function Users() {
         password: Password,
         roleId: roleId,
       });
+
       showAlert("The user has been successfully registered!", "alert-success");
       clearForm();
       setIsFormVisible(false);
       loadUsers(); // Reload the users after saving
     } catch (err) {
-      showAlert(`Error: ${err.message}`, "alert-danger");
+      showAlert(`Error: ${err.response.data}`, "alert-danger");
+      console.error("Error saving user:", err.response.data);
     }
   }
 
+  // Edito përdoruesin ekzistues
   async function editUser(user) {
     setId(user.id);
     setFirstName(user.firstName);
     setLastName(user.lastName);
     setEmail(user.email);
-    setPassword(user.password);
+    setPassword(""); // Don't pre-fill the password for security reasons
     setRoleId(user.roleId);
     setIsFormVisible(true);
   }
 
+  // Fshi përdoruesin
   async function deleteUser(userId) {
     try {
       await axios.delete(`https://localhost:7214/api/Users/Delete?Id=${userId}`);
       showAlert("The user has been successfully deleted!", "alert-success");
       loadUsers(); // Reload the users after deleting
     } catch (err) {
-      showAlert(`Error: ${err.message}`, "alert-danger");
+      showAlert(`Error: ${err.response.data}`, "alert-danger");
+      console.error("Error deleting user:", err.response.data);
     }
   }
 
+  // Përditëso përdoruesin
   async function update(e) {
     e.preventDefault(); // Prevent default form submission
     try {
@@ -95,18 +123,21 @@ function Users() {
         firstName: FirstName,
         lastName: LastName,
         email: Email,
-        password: Password,
+        password: Password, // Send new password if it was changed
         roleId: roleId,
       });
+
       showAlert("The user has been successfully updated!", "alert-success");
       clearForm();
       setIsFormVisible(false);
       loadUsers(); // Reload the users after update
     } catch (err) {
-      showAlert(`Error: ${err.message}`, "alert-danger");
+      showAlert(`Error: ${err.response.data}`, "alert-danger");
+      console.error("Error updating user:", err.response.data);
     }
   }
 
+  // Pastro formën
   function clearForm() {
     setId("");
     setFirstName("");
@@ -116,6 +147,7 @@ function Users() {
     setRoleId("");
   }
 
+  // Shfaqje e mesazhit të gabimit ose suksesit
   function showAlert(message, type) {
     setAlertMessage(message);
     setAlertType(type);
@@ -159,7 +191,7 @@ function Users() {
                 <div className="form-group px-5">
                   <input type="text" className="form-control" id="id" hidden value={Id} />
 
-                  <label className="label">Name:</label>
+                  <label className="label">First Name:</label>
                   <input
                     type="text"
                     className="form-control mb-3"
@@ -170,7 +202,7 @@ function Users() {
                 </div>
 
                 <div className="form-group px-5">
-                  <label className="label">LastName:</label>
+                  <label className="label">Last Name:</label>
                   <input
                     type="text"
                     className="form-control mb-3"
@@ -194,23 +226,30 @@ function Users() {
                 <div className="form-group px-5">
                   <label className="label">Password:</label>
                   <input
-                    type="text"
+                    type="password"
                     className="form-control mb-3"
                     id="password"
                     value={Password}
                     onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter new password or leave empty"
                   />
                 </div>
 
                 <div className="form-group px-5">
                   <label className="label">Role:</label>
-                  <input
-                    type="text"
+                  <select
                     className="form-control mb-3"
                     id="role"
                     value={roleId}
                     onChange={(e) => setRoleId(e.target.value)}
-                  />
+                  >
+                    <option value="">Select Role</option>
+                    {Roles.map((role) => (
+                      <option key={role.id} value={role.id}>
+                        {role.name}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div className="mt-3">
@@ -242,8 +281,7 @@ function Users() {
                   <th scope="col">First Name</th>
                   <th scope="col">Last Name</th>
                   <th scope="col">Email</th>
-                  <th scope="col">Password</th>
-                  <th scope="col">RoleId</th>
+                  <th scope="col">Role</th>
                   <th scope="col">Options</th>
                 </tr>
               </thead>
@@ -254,8 +292,7 @@ function Users() {
                     <td>{user.firstName}</td>
                     <td>{user.lastName}</td>
                     <td>{user.email}</td>
-                    <td>{user.password}</td>
-                    <td>{user.roleId}</td>
+                    <td>{Roles.find((role) => role.id === user.roleId)?.name || "N/A"}</td>
                     <td className="options-cell d-flex justify-content-center align-items-center">
                       <button
                         type="button"
