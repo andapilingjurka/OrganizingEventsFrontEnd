@@ -49,19 +49,19 @@ const Home = () => {
             <img src={weddings} alt="Event 1" />
             <h3>Weddings</h3>
             <p>We specialize in planning and executing the perfect wedding, tailored to your unique style and preferences.</p>
-            <Link to="/events" className="btn">Reserve Now</Link>
+            <Link to="/eventlist" className="btn">Reserve Now</Link>
           </div>
           <div className="service-card">
             <img src={engagement} alt="Event 2" />
             <h3>Engagements</h3>
             <p>Celebrate your engagement with a memorable event that reflects your love and commitment.</p>
-            <Link to="/events" className="btn">Reserve Now</Link>
+            <Link to="/eventlist" className="btn">Reserve Now</Link>
           </div>
           <div className="service-card">
             <img src={birthday} alt="Event 3" />
             <h3>Birthday Parties</h3>
             <p>Make your birthday celebration stand out with our creative and personalized party planning services.</p>
-            <Link to="/events" className="btn">Reserve Now</Link>
+            <Link to="/eventlist" className="btn">Reserve Now</Link>
           </div>
         </div>
       </section>
