@@ -231,7 +231,6 @@ function Users() {
                     id="password"
                     value={Password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter new password or leave empty"
                   />
                 </div>
 
