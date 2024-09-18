@@ -59,11 +59,11 @@
     color: #000;    
     font-family: 'Allura', cursive;     
     font-weight: bold;
-    font-size: 32px;                     
+    font-size: 28px;                     
   }
   
   .event-price {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: bolder;
     color: #000; 
     font-family: "Gruppo", sans-serif;                    
@@ -98,12 +98,14 @@
   max-width: 70%; 
   margin: 0 auto; 
   padding-left: 100px;
+  color: #4f4f4f;
 }
 
 .event-title-details{
   font-family: 'Allura', cursive;
   font-size: 45px;
   font-weight: bold;
+  color:#000;
   
 }
 
