@@ -55,7 +55,7 @@ const EventList = () => {
     <div>
       <Nav/>
       <div className="container-event mt-3">
-        <div className="search-bar mb-4">
+        <div className="search-bar-event mb-4">
           <input
             type="text"
             placeholder="Search by event name..."
