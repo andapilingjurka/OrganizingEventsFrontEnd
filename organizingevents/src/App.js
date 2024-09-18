@@ -17,8 +17,8 @@ import Home from "./User/Home/Home";
 import AboutUs from "./User/AboutUs/aboutus";
 import RestaurantList from "./User/Restaurants/RestaurantList";
 import RestaurantDetails from "./User/Restaurants/RestaurantDetails";
-
-
+import EventList from "./User/Events/EventList";
+import EventDetails from "./User/Events/EventDetails";
 
 
 function App() {
@@ -44,6 +44,8 @@ function App() {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/restaurantlist" element={<RestaurantList/>} />
           <Route path="/restaurant/:id" element={<RestaurantDetails />} />
+          <Route path="/eventlist" element={<EventList />} />
+          <Route path="/event/:id" element={<EventDetails />} />
 
       </Routes>
     </Router>
