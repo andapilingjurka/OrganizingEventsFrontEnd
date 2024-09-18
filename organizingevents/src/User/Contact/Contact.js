@@ -53,12 +53,12 @@ function Contact() {
                 email: email,
                 message: message,
             });
-            showAlert("Your message has been sent successfully!", "alert-success");
+            showAlert("Your message has been sent successfully!", "alert-success-contact");
             setName("");
             setEmail("");
             setMessage("");
         } catch (err) {
-            showAlert(`Error: ${err}`, "alert-danger");
+            showAlert(`Error: ${err}`, "alert-danger-contact");
         } finally {
             setIsSubmitting(false);
         }
@@ -136,7 +136,7 @@ function Contact() {
                     </motion.form>
 
                     {isAlertVisible && (
-                        <div className={`alert ${alertType}`}>
+                        <div className={`alert-contact ${alertType}`}>
                             {alertMessage}
                         </div>
                     )}
