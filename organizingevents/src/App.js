@@ -20,6 +20,7 @@ import RestaurantDetails from "./User/Restaurants/RestaurantDetails";
 import EventList from "./User/Events/EventList";
 import EventDetails from "./User/Events/EventDetails";
 import StaffList from "./User/Staff/StaffList";
+import FeedbackAdmin from "./Admin/FeedbackAdmin";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Route path="/contactAdmin" element={<ContactAdmin />} />
         <Route path="/users" element={<Users />} />
         <Route path="/reservations" element={<Reservations/>} />
+        <Route path="/feedbackAdmin" element={<FeedbackAdmin/>} />
 
 
           {/*User Part*/}
