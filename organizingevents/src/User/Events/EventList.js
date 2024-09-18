@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Nav from '../include/Nav';
+import Nav from '../include/Navbar';
 import Footer from '../include/Footer';
 import './Event.css'; 
 
