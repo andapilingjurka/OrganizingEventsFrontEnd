@@ -234,37 +234,55 @@
 
 
   /* Call to Action Section */
-  .cta-section {
-    padding: 60px 20px;
-    background-color: #f0f0f0;
-    text-align: center;
-    color: black;
-  }
-  
-  .cta-section h2 {
-    font-size: 50px;
-    margin-bottom: 20px;
-    font-family: 'Allura', cursive;
-    font-weight: bold;
-  }
-  
-  .cta-section p {
-    font-size: 18px;
-    margin-bottom: 30px;
-  }
-  
-  .cta-section .btn {
-    padding: 15px 30px;
-    background-color: #ff7b54;
-    color: #fff;
-    border-radius: 0;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    font-family: "Gruppo", sans-serif;
-    font-weight: bolder;
-    font-size: 20px;
-  }
-  
-  .cta-section .btn:hover {
-    background-color: #e76541;
-  }
+.cta-feedback-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; 
+  padding: 10px 120px;
+  background-color: #f0f0f0;
+}
+
+.cta-section {
+  flex: 1;
+  padding: 200px 10px;
+  text-align: left; 
+  color: black;
+}
+
+.feedback-form {
+  flex: 1;
+  padding: 20px 20px;
+  color: black;
+  margin-left: 20px; 
+}
+
+.cta-section h2 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  font-family: 'Allura', cursive;
+  font-weight: bold;
+}
+
+.cta-section p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  padding-right: 70px;
+}
+
+
+.cta-section .btn {
+  padding: 10px 30px;
+  background-color: #ff7b54;
+  color: #fff;
+  border-radius: 0;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-family: "Gruppo", sans-serif;
+  font-weight: bolder;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.cta-section .btn:hover {
+  background-color: #e76541;
+}

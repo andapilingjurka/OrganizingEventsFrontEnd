@@ -107,13 +107,18 @@ const Home = () => {
 
 
       {/* Call to Action Section */}
-      <section className="cta-section">
-        <h2>Ready to Plan Your Event?</h2>
-        <p>Contact us now to begin planning your perfect event and ensure it's everything you've dreamed of.</p>
-        <Link to="/contactus" className="btn">Start Planning</Link>
-      </section>
+      <div className="cta-feedback-container">
+          <section className="cta-section">
+            <h2>Ready to Plan Your Event?</h2>
+            <p>Contact us now to begin planning your perfect event and ensure it's everything you've dreamed of.</p>
+            <Link to="/contactus" className="btn">Start Planning</Link>
+          </section>
 
-      <AddFeedback />
+          <div className="feedback-form">
+            <AddFeedback />
+          </div>
+      </div>
+
 
       <Footer />
     </div>
