@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Login.css';
 
 const Login = () => {
@@ -20,36 +22,37 @@ const Login = () => {
   };
 
   const onLoginClick = async () => {  
-
     const userData = {
       email: Email,
       password: Password
     };
-
+  
     if (!Email) {
-      setEmailError('Email is required');
+      toast.error('Email is required');
+      return;
     }
-
+  
     if (!Password) {
-      setPasswordError('Password is required');
+      toast.error('Password is required');
+      return;
     }
-
+  
     try {
       const response = await axios.post('https://localhost:7214/api/Users/Login', userData);
       if (response.status === 200) {
-        console.log('Sending data:', userData);
-        alert('success');
-        navigate('/')
+        const { roleId } = response.data;
+        localStorage.setItem('roleId', roleId);
+        toast.success('Logged in successfully!');
+        navigate('/');
       } else {
-        setServerError('An error occurred: ' + response.data);
+        toast.error('An error occurred: ' + response.data);
       }
     } catch (error) {
       console.error('Error:', error);
-      setServerError('An error occurred. Please try again.');
+      toast.error('An error occurred. Please try again.');
     }
   };
 
-  
   return (
     <div className={'mainContainer'}>
       <div className={'loginBox'}>
@@ -60,7 +63,7 @@ const Login = () => {
           <input
             value={Email}
             placeholder="Enter your email here"
-            onChange={handleInputChange(setEmail,setEmailError)}
+            onChange={handleInputChange(setEmail, setEmailError)}
             className={'inputBox'}
           />
           {emailError && <label className="errorLabel">{emailError}</label>}
@@ -70,7 +73,7 @@ const Login = () => {
             type='password'
             value={Password}
             placeholder="Enter your password here"
-            onChange={handleInputChange(setPassword,setPasswordError)}
+            onChange={handleInputChange(setPassword, setPasswordError)}
             className={'inputBox'}
           />
           {passwordError && <label className="errorLabel">{passwordError}</label>}
@@ -83,6 +86,7 @@ const Login = () => {
         </div>
         {ServerError && <label className="errorLabel">{ServerError}</label>}
       </div>
+      <ToastContainer /> {/* Shto ToastContainer për të treguar njoftimet */}
     </div>
   );
 };

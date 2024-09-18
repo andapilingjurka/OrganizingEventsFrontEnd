@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Register.css';
 
 const Register = () => {
@@ -29,23 +31,33 @@ const Register = () => {
   const onRegisterClick = async () => {
     let hasError = false;
 
+    if(!FirstName){
+      toast.error('Name is required');
+      hasError = true;
+    }
+
+    if(!LastName){
+      toast.error('Last name is required');
+      hasError = true;
+    }
+
     if (!Email) {
-      setEmailError('Email is required');
+      toast.error('Email is required'); // Toast for email error
       hasError = true;
     }
 
     if (!Password) {
-      setPasswordError('Password is required');
+      toast.error('Password is required'); // Toast for password error
       hasError = true;
     }
 
     if (Password !== confirmPassword) {
-      setConfirmPasswordError('Passwords do not match');
+      toast.error('Passwords do not match'); // Toast for confirm password error
       hasError = true;
     }
 
     if (!hasError) {
-      const roleID = 2;
+      const roleID = 3;
       const userData = {
         firstName: FirstName,
         lastName: LastName,
@@ -57,15 +69,16 @@ const Register = () => {
       try {
         const response = await axios.post('https://localhost:7214/api/Users/Register', userData);
         if (response.status === 200) {
+          toast.success('Registration successful!'); // Toast for successful registration
           console.log('Sending data:', userData);
-          navigate('/login')
+          navigate('/login');
         } else {
           console.log(response.data);
-          setServerError('An error occurred: ' + response.data);
+          toast.error('An error occurred: ' + response.data); // Toast for server error
         }
       } catch (error) {
         console.error('Error:', error);
-        setServerError('An error occurred. Please try again.');
+        toast.error('An error occurred. Please try again.'); // Toast for network error
       }
     }
   };
@@ -128,6 +141,7 @@ const Register = () => {
           {serverError && <label className="errorLabel">{serverError}</label>}
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

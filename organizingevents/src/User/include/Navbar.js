@@ -1,10 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 import './Navbar.css';
 import 'bootstrap-icons/font/bootstrap-icons.css'; 
 import logo from '../images/logo.jpg'; 
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const roleId = localStorage.getItem('roleId');
+
+  const handleLogout = () => {
+    localStorage.removeItem('roleId');
+    toast.success('Logged out successfully!');
+    navigate('/');
+  };
+
   return (
     <div className="navbar-container"> 
       <div className="navbar-top">
@@ -13,14 +24,18 @@ const Navbar = () => {
           <i className="bi bi-search"></i>
           <i className="bi bi-bell"></i>
           <i className="bi bi-list"></i>
-          <Link to="/login" style={{textDecoration:'none'}}>
-            <button id="loginButton"><i class="bi bi-person-fill-up"></i>Login</button>
-          </Link>
-          <Link to="/register" style={{textDecoration:'none'}}>
-            <button id="registerButton"><i class="bi bi-person-add"></i>Register</button>
-          </Link>
-
-
+          {!roleId ? (
+            <>
+              <Link to="/login" style={{textDecoration:'none'}}>
+                <button id="loginButton"><i className="bi bi-person-fill-up"></i>Login</button>
+              </Link>
+              <Link to="/register" style={{textDecoration:'none'}}>
+                <button id="registerButton"><i className="bi bi-person-add"></i>Register</button>
+              </Link>
+            </>
+          ) : (
+            <button id="logoutButton" onClick={handleLogout}><i className="bi bi-box-arrow-right"></i>Logout</button>
+          )}
         </div>
       </div>
       <div className="navbar-bottom">
@@ -43,11 +58,14 @@ const Navbar = () => {
           <li>
             <Link to="/contactus" className="nav-link">Contact</Link>
           </li>
+          {roleId === '1' && (
           <li>
             <Link to="/dashboard" className="nav-link">Dashboard</Link>
           </li>
+          )}
         </ul>
       </div>
+      <ToastContainer />
     </div>
   );
 }
