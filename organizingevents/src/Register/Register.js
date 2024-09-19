@@ -32,27 +32,27 @@ const Register = () => {
     let hasError = false;
 
     if(!FirstName){
-      toast.error('Name is required');
+      toast.error('Name is required!');
       hasError = true;
     }
 
     if(!LastName){
-      toast.error('Last name is required');
+      toast.error('Surname is required!');
       hasError = true;
     }
 
     if (!Email) {
-      toast.error('Email is required'); // Toast for email error
+      toast.error('Email is required!'); // Toast for email error
       hasError = true;
     }
 
     if (!Password) {
-      toast.error('Password is required'); // Toast for password error
+      toast.error('Password is required!'); // Toast for password error
       hasError = true;
     }
 
     if (Password !== confirmPassword) {
-      toast.error('Passwords do not match'); // Toast for confirm password error
+      toast.error('Passwords do not match!'); // Toast for confirm password error
       hasError = true;
     }
 
@@ -84,61 +84,66 @@ const Register = () => {
   };
 
   return (
-    <div className={'mainContainer'}>
-      <div className={'registerBox'}>
-        <div className={'titleContainer'}>
+    <div className="mainContainer">
+      <div className="registerBox">
+        <div className="titleContainer-register">
           <div>Register</div>
         </div>
-        <div className={'inputContainer'}>
+        <div className="inputContainer-register">
           <input
             value={FirstName}
-            placeholder="Enter your name here"
+            placeholder="Name"
             onChange={handleInputChange(setFirstName, setNameError)}
-            className={'inputBox'}
+            className="inputBox"
           />
           {nameError && <label className="errorLabel">{nameError}</label>}
         </div>
-        <div className={'inputContainer'}>
+        <div className="inputContainer-register">
           <input
             value={LastName}
-            placeholder="Enter your surname here"
+            placeholder="Surname"
             onChange={handleInputChange(setLastName, setSurnameError)}
-            className={'inputBox'}
+            className="inputBox"
           />
           {surnameError && <label className="errorLabel">{surnameError}</label>}
         </div>
-        <div className={'inputContainer'}>
+        <div className="inputContainer-register">
           <input
             value={Email}
-            placeholder="Enter your email here"
+            placeholder="Email"
             onChange={handleInputChange(setEmail, setEmailError)}
-            className={'inputBox'}
+            className="inputBox"
           />
           {emailError && <label className="errorLabel">{emailError}</label>}
         </div>
-        <div className={'inputContainer'}>
+        <div className="inputContainer-register">
           <input
             type='password'
             value={Password}
-            placeholder="Enter your password here"
+            placeholder="Password"
             onChange={handleInputChange(setPassword, setPasswordError)}
-            className={'inputBox'}
+            className="inputBox"
           />
           {passwordError && <label className="errorLabel">{passwordError}</label>}
         </div>
-        <div className={'inputContainer'}>
+        <div className="inputContainer-register">
           <input
             type='password'
             value={confirmPassword}
-            placeholder="Confirm your password"
+            placeholder="Confirm password"
             onChange={handleInputChange(setConfirmPassword, setConfirmPasswordError)}
-            className={'inputBox'}
+            className="inputBox"
           />
           {confirmPasswordError && <label className="errorLabel">{confirmPasswordError}</label>}
         </div>
-        <div className={'inputContainer'}>
-          <input className={'inputButton'} type="button" onClick={onRegisterClick} value={'Register'} />
+        <div className="inputContainer-register">
+          <input className="inputButton" type="button" onClick={onRegisterClick} value={'Register'} />
           {serverError && <label className="errorLabel">{serverError}</label>}
+        </div>
+
+        <div className="loginContainer">
+          <p>Already have an account?</p>
+          <input className="loginButton" type="button" value={'Login'} onClick={() => navigate('/login')} />
         </div>
       </div>
       <ToastContainer />

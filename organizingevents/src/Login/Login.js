@@ -28,12 +28,12 @@ const Login = () => {
     };
   
     if (!Email) {
-      toast.error('Email is required');
+      toast.error('Email is required!');
       return;
     }
   
     if (!Password) {
-      toast.error('Password is required');
+      toast.error('Password is required!');
       return;
     }
   

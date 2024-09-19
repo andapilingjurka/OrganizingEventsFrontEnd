@@ -1,4 +1,7 @@
-/* mainContainer */
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded&display=swap');
+
 .mainContainer {
     display: flex;
     flex-direction: column;
@@ -9,82 +12,102 @@
                 url('../User/images/event7.jpg');
     background-size: cover;
     background-position: center;
-    font-family: 'Arial', sans-serif;
   }
-  
-  /* titleContainer */
-  .titleContainer {
-    display: flex;
-    flex-direction: column;
-    font-size: 48px;
+
+  .registerBox {
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.475); 
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6); 
+    transition: transform 0.2s ease-in-out;
+    height: 600px;
+    width:460px;
+    border-radius: 5px;
+  }
+
+  .titleContainer-register{
+    font-family: 'Allura', cursive;
     font-weight: bold;
+    font-size: 45px;
     align-items: center;
     justify-content: center;
-    color: #333;
-    margin-bottom: 20px;
+    display: flex;
+    padding-bottom: 20px;
   }
-  
-  /* inputContainer */
-  .inputContainer {
+
+  .inputContainer-register input{
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  
+    font-size: 13px;
+    font-family: "Unbounded", sans-serif;
+    text-align: left;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
+    width: 350px;
+    margin: 0 auto;
   }
-  
-  /* errorLabel */
-  .errorLabel {
-    background-color: #fff; /* Background color of the error box */
-    color: red;             /* Text color */
-    font-size: 12px;
-    padding: 5px;          /* Padding around the text */
-    border-radius: 4px;   /* Rounded corners for the error box */
-    margin-top: 5px;      /* Space between input and error message */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional: shadow for better visibility */
-  }
-  
-  /* inputBox */
-  .inputBox {
-    height: 48px;
-    width: 400px;
-    font-size: large;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    padding-left: 16px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-  }
-  
-  /* Efekt për input kur është në fokus */
-  .inputBox:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
-    outline: none;
-  }
-  
-  /* inputButton */
-  .inputButton {
-    height: 48px;
-    width: 400px;
-    font-size: large;
-    background-color: #007bff;
+
+  .inputContainer-register .inputButton{
+    background-color: #ff7b54 !important;
     color: white;
+    padding: 8px 20px;
     border: none;
-    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 50%;
+    text-transform: uppercase;
+    font-family: "Gruppo", sans-serif;  
+    font-weight: bolder;
+    border-radius: none !important;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 16px;
   }
-  
-  /* Efekt për butonin gjatë hover */
-  .inputButton:hover {
-    background-color: #0056b3;
-    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+
+  .inputContainer-register .inputButton:hover{
+    background-color: #e76541 !important;
   }
-  
-  /* Efekt për butonin gjatë klikimit */
-  .inputButton:active {
-    background-color: #00408a;
-    box-shadow: none;
+
+  .loginContainer p{
+    text-align: center;
+    font-family: "Unbounded", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
   }
-  
+
+  .loginContainer .loginButton{
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    cursor: pointer;
+    padding: 9px 15px;
+    width: 50%;
+    margin-top: -7px;
+    border: none;
+    border-radius: 5px;
+    background-color: #616161;
+    color:#fff;
+    text-transform: uppercase;
+    font-family: "Gruppo", sans-serif;  
+    font-weight: bolder;
+    display: flex;
+  }
+
+  .loginContainer .loginButton:hover{
+    background-color: #525151;
+  }
+
+  .errorLabel {
+    background-color: #fff; 
+    color: red;             
+    font-size: 12px;
+    padding: 5px;         
+    border-radius: 4px;   
+    margin-top: 5px;      
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
+  }
+ 
