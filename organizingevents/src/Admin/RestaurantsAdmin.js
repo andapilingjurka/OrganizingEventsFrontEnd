@@ -21,6 +21,8 @@ function RestaurantsAdmin() {
   const [restaurantTypesId, setRestaurantTypesId] = useState("");
   const [restaurantTypes, setRestaurantTypes] = useState([]); 
   const [restaurants, setRestaurants] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
 
   const [alertMessage, setAlertMessage] = useState("");
   const [alertType, setAlertType] = useState(""); 
@@ -154,6 +156,19 @@ function RestaurantsAdmin() {
       showAlert(`Error: ${err}`, "alert-danger");
     }
   }
+
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get('https://localhost:7214/api/Restaurants/SearchRestaurant', {
+        params: {
+          searchRestaurant: searchTerm,
+        },
+      });
+      setRestaurants(response.data);
+    } catch (err) {
+      console.error("Error searching events:", err);
+    }
+  };
 
   function showAlert(message, type) {
     setAlertMessage(message);
@@ -328,6 +343,20 @@ function RestaurantsAdmin() {
               {alertMessage}
             </div>
           )}
+
+
+          <div className="search-event-admin">
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="form-control-search me-2"
+              />
+            <button className="btn btn-search-event me-2" onClick={handleSearch}>Search
+              <i className="fas fa-search"></i>
+            </button>
+
+            </div>
 
 
             <div className="table-responsive m-4 px-4">
