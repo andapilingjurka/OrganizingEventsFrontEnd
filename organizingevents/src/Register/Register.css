@@ -1,0 +1,90 @@
+/* mainContainer */
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), 
+                url('../User/images/event7.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* titleContainer */
+  .titleContainer {
+    display: flex;
+    flex-direction: column;
+    font-size: 48px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* inputContainer */
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  /* errorLabel */
+  .errorLabel {
+    background-color: #fff; /* Background color of the error box */
+    color: red;             /* Text color */
+    font-size: 12px;
+    padding: 5px;          /* Padding around the text */
+    border-radius: 4px;   /* Rounded corners for the error box */
+    margin-top: 5px;      /* Space between input and error message */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Optional: shadow for better visibility */
+  }
+  
+  /* inputBox */
+  .inputBox {
+    height: 48px;
+    width: 400px;
+    font-size: large;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding-left: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+  
+  /* Efekt për input kur është në fokus */
+  .inputBox:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+  
+  /* inputButton */
+  .inputButton {
+    height: 48px;
+    width: 400px;
+    font-size: large;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Efekt për butonin gjatë hover */
+  .inputButton:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Efekt për butonin gjatë klikimit */
+  .inputButton:active {
+    background-color: #00408a;
+    box-shadow: none;
+  }
+  

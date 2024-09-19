@@ -11,7 +11,9 @@ import RestaurantsAdmin from "./Admin/RestaurantsAdmin";
 import StaffAdmin from "./Admin/StaffAdmin";
 import ContactAdmin from './Admin/ContactAdmin';
 import Users from "./Admin/Users";
-import Reservations from "./Admin/Reservations"
+import Reservations from "./Admin/Reservations";
+import Login from "./Login/Login";
+import Register from "./Register/Register";
 
 import Home from "./User/Home/Home";
 import AboutUs from "./User/AboutUs/aboutus";
@@ -41,7 +43,8 @@ function App() {
         <Route path="/users" element={<Users />} />
         <Route path="/reservations" element={<Reservations/>} />
         <Route path="/feedbackAdmin" element={<FeedbackAdmin/>} />
-
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
 
           {/*User Part*/}
           <Route path="/" element={<Home />} />

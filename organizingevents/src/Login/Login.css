@@ -1,0 +1,143 @@
+/* mainContainer */
+.mainContainer {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), 
+                url('../User/images/event7.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* titleContainer */
+  .titleContainer {
+    display: flex;
+    flex-direction: column;
+    font-size: 48px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* inputContainer */
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  /* errorLabel */
+  .inputContainer > .errorLabel {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* inputBox */
+  .inputBox {
+    height: 48px;
+    width: 400px;
+    font-size: large;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding-left: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+  
+  /* Efekt për input kur është në fokus */
+  .inputBox:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+  
+  /* inputButton */
+  .inputButton {
+    height: 48px;
+    width: 400px;
+    font-size: large;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Efekt për butonin gjatë hover */
+  .inputButton:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Efekt për butonin gjatë klikimit */
+  .inputButton:active {
+    background-color: #00408a;
+    box-shadow: none;
+  }
+  
+  /* Login container for more emphasis */
+  .mainContainer {
+    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url('../User/images/event7.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .titleContainer {
+    font-size: 64px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Container for the login form */
+  .loginBox {
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+  }
+  
+  .registerContainer {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .registerButton {
+    height: 40px;
+    width: 200px;
+    font-size: medium;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .registerButton:hover {
+    background-color: #218838;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+  }
+  
+  .registerButton:active {
+    background-color: #1e7e34;
+    box-shadow: none;
+  }

@@ -13,6 +13,12 @@ const Navbar = () => {
           <i className="bi bi-search"></i>
           <i className="bi bi-bell"></i>
           <i className="bi bi-list"></i>
+          <Link to="/login" style={{textDecoration:'none'}}>
+            <button id="loginButton"><i class="bi bi-person-fill-up"></i>Login</button>
+          </Link>
+          <Link to="/register" style={{textDecoration:'none'}}>
+            <button id="registerButton"><i class="bi bi-person-add"></i>Register</button>
+          </Link>
 
 
         </div>
