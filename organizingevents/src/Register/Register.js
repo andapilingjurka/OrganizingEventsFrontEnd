@@ -143,7 +143,7 @@ const Register = () => {
 
         <div className="loginContainer">
           <p>Already have an account?</p>
-          <input className="loginButton" type="button" value={'Login'} onClick={() => navigate('/login')} />
+          <input className="loginButton" type="button" value={'Log in'} onClick={() => navigate('/login')} />
         </div>
       </div>
       <ToastContainer />
