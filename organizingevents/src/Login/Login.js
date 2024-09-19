@@ -54,35 +54,36 @@ const Login = () => {
   };
 
   return (
-    <div className={'mainContainer'}>
-      <div className={'loginBox'}>
-        <div className={'titleContainer'}>
-          <div>Login</div>
+    <div className="mainContainer">
+      <div className="loginBox">
+        <div className='titleContainer'>
+          <h2>Login</h2>
         </div>
-        <div className={'inputContainer'}>
+        <div className="inputContainer">
           <input
             value={Email}
-            placeholder="Enter your email here"
+            placeholder="Email"
             onChange={handleInputChange(setEmail, setEmailError)}
-            className={'inputBox'}
+            className="inputBox"
           />
           {emailError && <label className="errorLabel">{emailError}</label>}
         </div>
-        <div className={'inputContainer'}>
+        <div className="inputContainer">
           <input
             type='password'
             value={Password}
-            placeholder="Enter your password here"
+            placeholder="Password"
             onChange={handleInputChange(setPassword, setPasswordError)}
-            className={'inputBox'}
+            className="inputBox"
           />
           {passwordError && <label className="errorLabel">{passwordError}</label>}
         </div>
-        <div className={'inputContainer'}>
-          <input className={'inputButton'} type="button" onClick={onLoginClick} value={'Log in'} />
+        <div className="inputContainer">
+          <input className="inputButton" type="button" onClick={onLoginClick} value={'Log in'} />
         </div>
-        <div className={'registerContainer'}>
-          <input className={'registerButton'} type="button" value={'Register'} onClick={() => navigate('/register')} />
+        <div className="registerContainer">
+          <p>Don't have an account!</p>
+          <input className="registerButton" type="button" value={'Register'} onClick={() => navigate('/register')} />
         </div>
         {ServerError && <label className="errorLabel">{ServerError}</label>}
       </div>
