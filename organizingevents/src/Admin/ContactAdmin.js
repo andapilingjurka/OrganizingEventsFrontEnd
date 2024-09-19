@@ -17,6 +17,7 @@ function ContactAdmin() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [contactList, setContactList] = useState([]);
+  const [sortOrder, setSortOrder] = useState("asc");
 
   const [alertMessage, setAlertMessage] = useState("");
   const [alertType, setAlertType] = useState("");
@@ -35,6 +36,27 @@ function ContactAdmin() {
   useEffect(() => {
     (async () => await loadContacts())();
   }, []);
+
+
+  const sortContact = (order) => {
+    const sortedContact = [...contactList].sort((a, b) => {
+      const nameA = a.name || ''; 
+      const nameB = b.name || ''; 
+  
+      if (order === "asc") {
+        return nameA.localeCompare(nameB);
+      } else {
+        return nameB.localeCompare(nameA);
+      }
+    });
+    setContactList(sortedContact);
+  };
+  
+
+  const handleSortOrderChange = (e) => {
+    setSortOrder(e.target.value);
+    sortContact(e.target.value);
+  };
 
   async function loadContacts() {
     try {
@@ -201,6 +223,19 @@ function ContactAdmin() {
           )}
 
           {isAlertVisible && <div className={`alert ${alertType}`}>{alertMessage}</div>}
+
+          <div className="user-order">
+            <select 
+              className="form-select-user"
+              onChange={handleSortOrderChange}
+              value={sortOrder}
+            >
+              <option value="asc">Sort A-Z</option>
+              <option value="desc">Sort Z-A</option>
+            </select>
+          </div>
+
+
 
           <div className="table-responsive m-4 px-4">
             <table className="table border-gray">
