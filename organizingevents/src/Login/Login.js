@@ -8,6 +8,8 @@ import './Login.css';
 const Login = () => {
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
+  const [FirstName,setFirstName] = useState('')
+  const [LastName,setLastName] = useState('')
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [ServerError, setServerError] = useState('');
@@ -40,8 +42,12 @@ const Login = () => {
     try {
       const response = await axios.post('https://localhost:7214/api/Users/Login', userData);
       if (response.status === 200) {
-        const { roleId } = response.data;
+        const { roleId , userId , firstName , lastName} = response.data;
+        console.log(response.data)
         localStorage.setItem('roleId', roleId);
+        localStorage.setItem('userId',userId);
+        localStorage.setItem('firstName',firstName)
+        localStorage.setItem('lastName',lastName)
         toast.success('Logged in successfully!');
         navigate('/');
       } else {
