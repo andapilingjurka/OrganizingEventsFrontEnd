@@ -58,8 +58,10 @@
 }
 
 .alert-success-contact {
-    background-color: #4CAF50;
+    background-color: #1d591f;
     color: white;
+    font-family: "Unbounded", sans-serif;
+    font-size: 14px;
 }
 
 .alert-danger-contact {
