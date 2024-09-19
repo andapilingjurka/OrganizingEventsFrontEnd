@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded&display=swap');
 
 /* Navbar.css */
 .navbar-container {
@@ -34,15 +35,62 @@
     position: absolute;
     right: 20px;
     display: flex;
-    gap: 10px;
+    gap: 15px;
   }
-  
-  .icons i {
-    font-size: 20px;
-    color: #000;
-    margin: 0 5px;
-    position: relative;
-    cursor: pointer;
+
+  .icons i{
+    color: #fff;
+    padding-right: 10px;
+    font-size: 18px;
+  }
+
+  #loginButton{
+    padding: 7px 20px;
+    background-color: #ff7b54;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-family: "Unbounded", sans-serif;
+    font-size: 14px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  #loginButton:hover{
+    background-color: #e76541;
+  }
+
+  #registerButton{
+    padding: 7px 20px;
+    background-color: #3f3f3f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-family: "Unbounded", sans-serif;
+    font-size: 14px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  #registerButton:hover{
+    background-color: #2c2c2c;
+  }
+
+
+  #logoutButton{
+    padding: 8px 20px;
+    background-color: #3f3f3f;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    font-family: "Unbounded", sans-serif;
+    font-size: 14px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+  }
+
+  #logoutButton:hover{
+    background-color: #2c2c2c;
   }
   
   .navbar-bottom {
@@ -93,76 +141,19 @@
   .nav-link:hover::after {
     width: 100%;
   }
-  
-  #loginButton {
-    background-color: #90ee90; /* Light green */
-    color: #333; /* Darker text color for better contrast */
-    border: 2px solid #76c776; /* Slightly darker border for definition */
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-  }
-  
-  #loginButton i {
-    margin-right: 8px;
-    font-size: 18px; /* Slightly larger icon */
-    color: #333;
-  }
-  
-  #loginButton:hover {
-    background-color: #3cb371; /* Medium Sea Green on hover */
-    border-color: #2e8b57; /* Darker green border on hover */
-    color: #fff; /* White text on hover */
-  }
-  
-  #loginButton:focus {
-    outline: none;
-    box-shadow: 0 0 8px rgba(60, 179, 113, 0.6); /* Green glow on focus */
-  }
-  
-  #loginButton:active {
-    background-color: #2e8b57; /* Darker green when button is clicked */
-    border-color: #276747; /* Darker border when active */
-  }
-  
-  #registerButton {
-    background-color: #87CEFA; /* Light Sky Blue */
-    color: #333; /* Darker text color for better contrast */
-    border: 2px solid #4682B4; /* Steel Blue for the border */
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-  }
-  
-  #registerButton i {
-    margin-right: 8px;
-    font-size: 18px; /* Slightly larger icon */
-    color: #333;
-  }
-  
-  #registerButton:hover {
-    background-color: #4682B4; /* Steel Blue on hover */
-    border-color: #4169E1; /* Royal Blue for the border on hover */
-    color: #fff; /* White text on hover */
-  }
-  
-  #registerButton:focus {
-    outline: none;
-    box-shadow: 0 0 8px rgba(70, 130, 180, 0.6); /* Blue glow on focus */
-  }
-  
-  #registerButton:active {
-    background-color: #4169E1; /* Royal Blue when button is clicked */
-    border-color: #1E3A8A; /* Darker blue border when active */
-  }
-  
+
+
+.custom-toast {
+  background-color: #fff !important; 
+  color: #000 !important; 
+  font-size: 16px !important; 
+  border-radius: 5px !important;
+  padding: 8px 10px !important; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4) !important; 
+  font-family: "Unbounded", sans-serif;
+  font-size: 14px !important;
+}
+
+
+ 
+
