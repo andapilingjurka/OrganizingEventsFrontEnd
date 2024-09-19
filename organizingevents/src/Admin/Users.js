@@ -19,6 +19,7 @@ function Users() {
   const [Password, setPassword] = useState("");
   const [roleId, setRoleId] = useState("");
   const [Roles, setRoles] = useState([]); // Për rolet
+  const [sortOrder, setSortOrder] = useState("asc");
 
   const [alertMessage, setAlertMessage] = useState("");
   const [alertType, setAlertType] = useState("");
@@ -32,6 +33,23 @@ function Users() {
   const cancel = () => {
     setIsFormVisible(false);
     clearForm();
+  };
+
+
+  const handleSortOrderChange = (e) => {
+    setSortOrder(e.target.value);
+    sortUsers(e.target.value);
+  };
+  
+  const sortUsers = (order) => {
+    const sortedUsers = [...Users].sort((a, b) => {
+      if (order === "asc") {
+        return a.firstName.localeCompare(b.firstName);
+      } else {
+        return b.firstName.localeCompare(a.firstName);
+      }
+    });
+    setUsers(sortedUsers);
   };
 
   useEffect(() => {
@@ -271,6 +289,13 @@ function Users() {
               {alertMessage}
             </div>
           )}
+
+          <div className="user-order">
+            <select className="form-select-user" value={sortOrder} onChange={handleSortOrderChange}>
+                <option value="asc">Sort A-Z</option>
+                <option value="desc">Sort Z-A</option>
+            </select>
+          </div>
 
           <div className="table-responsive m-4 px-4">
             <table className="table border-gray">

@@ -424,3 +424,22 @@
   font-family: "Unbounded", sans-serif;
   font-size: 17px;
 }
+
+/*Order for User*/
+.user-order{
+  margin-left: 50px;
+  margin-top: 40px;
+}
+
+.form-select-user{
+  padding: 8px;
+  font-family: "Unbounded", sans-serif;
+  font-size: 15px;
+  background-color: #525660;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.form-select-user:hover{
+  background-color: #888787;
+}
