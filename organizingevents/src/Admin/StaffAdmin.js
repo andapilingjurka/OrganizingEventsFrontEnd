@@ -20,6 +20,8 @@ function StaffAdmin() {
   const [image, setImage] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const [staffList, setStaffList] = useState([]);
+  const [sortOrder, setSortOrder] = useState("asc");
+
 
   const [alertMessage, setAlertMessage] = useState("");
   const [alertType, setAlertType] = useState("");
@@ -46,6 +48,25 @@ function StaffAdmin() {
     (async () => await loadStaff())();
   }, []);
 
+  
+
+
+  const sortStaff = (order) => {
+    const sortedStaff = [...staffList].sort((a, b) => {
+      if (order === "asc") {
+        return a.firstName.localeCompare(b.firstName);
+      } else {
+        return b.firstName.localeCompare(a.firstName);
+      }
+    });
+    setStaffList(sortedStaff);
+  };
+
+  const handleSortOrderChange = (e) => {
+    setSortOrder(e.target.value);
+    sortStaff(e.target.value);
+  };
+  
 
   async function loadStaff() {
     try {
@@ -286,6 +307,18 @@ function StaffAdmin() {
               {alertMessage}
             </div>
           )}
+
+          <div className="user-order">
+            <select 
+              className="form-select-user"
+              onChange={handleSortOrderChange}
+              value={sortOrder}
+            >
+              <option value="asc">Sort A-Z</option>
+              <option value="desc">Sort Z-A</option>
+            </select>
+          </div>
+
 
           <div className="table-responsive m-4 px-4">
             <table className="table border-gray">
