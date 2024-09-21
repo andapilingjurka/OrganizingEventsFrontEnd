@@ -321,6 +321,7 @@ const exportToExcel = async () => {
             </select>
             <button className="btn btn-export-excel ms-3" onClick={exportToExcel}>
                 Export to Excel
+                <i className="fas fa-file-excel ms-2"></i>
               </button>
           </div>
 
