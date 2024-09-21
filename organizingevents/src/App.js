@@ -27,6 +27,7 @@ import AddFeedback from "./User/Home/AddFeedback";
 import Contact from "./User/Contact/Contact";
 import UserReservation from "./User/UserReservations/UserReservation";
 import PaymentForm from "./User/Payment/PaymentForm";
+import UserProfile from "./User/UserProfile/UserProfile";
 
 
 function App() {
@@ -62,6 +63,8 @@ function App() {
           <Route path="/reservationForUser" element = {<UserReservation/>}/>
 
           <Route path="/paymentform" element = {<PaymentForm/>}/>
+          <Route path="/profile" element={<UserProfile />} />
+
 
       </Routes>
     </Router>
