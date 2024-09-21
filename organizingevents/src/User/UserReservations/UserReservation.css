@@ -87,3 +87,22 @@
     background-color: #e76541 !important;
   }
   
+  .backButton {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background-color: #494949;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: "Gruppo", sans-serif;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+  
+  .backButton:hover {
+    background-color: #242222;
+  }
+  
