@@ -82,8 +82,17 @@ const Login = () => {
     
   };
 
+    // Funksioni për të kthyer në Home page
+    const handleBack = () => {
+      navigate('/');
+    };
+
   return (
-    <div className="mainContainer">
+      <div className="mainContainer">
+           {/* Butoni për kthim në Home */}
+           <button className="back-Button" onClick={handleBack}>
+        ← Back
+      </button>
       <div className="loginBox">
         <div className='titleContainer'>
           <h2>Login</h2>
