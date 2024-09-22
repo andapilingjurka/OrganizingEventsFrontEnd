@@ -7,6 +7,8 @@ import Sidebar from "./include/Sidebar";
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css"; 
 
+import { ToastContainer } from 'react-toastify';
+
 // Register Chart.js components
 ChartJS.register(
   CategoryScale,
@@ -180,6 +182,15 @@ function Dashboard() {
           </div>
         </div>
       </div>
+
+      <ToastContainer
+        style={{
+          position: 'fixed',
+          top: '20px', 
+          right: '20px',
+          zIndex: 2000,
+        }}
+      />
     </div>
   );
 }
