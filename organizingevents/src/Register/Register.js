@@ -31,30 +31,41 @@ const Register = () => {
   const onRegisterClick = async () => {
     let hasError = false;
 
-    if(!FirstName){
-      toast.error('Name is required!');
+    if (!FirstName) {
+      toast.error('Name is required!', {
+        className: 'toast-error-custom',  // Klasa e personalizuar
+      });
       hasError = true;
     }
-
-    if(!LastName){
-      toast.error('Surname is required!');
+    
+    if (!LastName) {
+      toast.error('Surname is required!', {
+        className: 'toast-error-custom',  // Klasa e personalizuar
+      });
       hasError = true;
     }
-
+    
     if (!Email) {
-      toast.error('Email is required!'); // Toast for email error
+      toast.error('Email is required!', {
+        className: 'toast-error-custom',  // Klasa e personalizuar
+      });
       hasError = true;
     }
-
+    
     if (!Password) {
-      toast.error('Password is required!'); // Toast for password error
+      toast.error('Password is required!', {
+        className: 'toast-error-custom',  // Klasa e personalizuar
+      });
       hasError = true;
     }
-
+    
     if (Password !== confirmPassword) {
-      toast.error('Passwords do not match!'); // Toast for confirm password error
+      toast.error('Passwords do not match!', {
+        className: 'toast-error-custom',  // Klasa e personalizuar
+      });
       hasError = true;
     }
+    
 
     if (!hasError) {
       const roleID = 3;
