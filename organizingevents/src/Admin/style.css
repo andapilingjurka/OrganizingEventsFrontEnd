@@ -498,3 +498,19 @@
   color:#000;
   font-size: 14px;
 }
+
+.predict-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Bën që elementi të shtrihet në lartësinë e të gjithë faqes */
+}
+
+.predict-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+}

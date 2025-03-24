@@ -27,6 +27,7 @@ import AddFeedback from "./User/Home/AddFeedback";
 import Contact from "./User/Contact/Contact";
 import UserReservation from "./User/UserReservations/UserReservation";
 import PaymentForm from "./User/Payment/PaymentForm";
+import PredictParticipants from "./Admin/PredictParticipants";
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
         <Route path="/feedbackAdmin" element={<FeedbackAdmin/>} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/predictParticipants" element={<PredictParticipants/>}/>
 
           {/*User Part*/}
           <Route path="/" element={<Home />} />
@@ -60,6 +62,7 @@ function App() {
           <Route path="/addfeedback" element={<AddFeedback />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/reservationForUser" element = {<UserReservation/>}/>
+          <Route path="/predictParticipants" element={<PredictParticipants/>}/>
 
           <Route path="/paymentform" element = {<PaymentForm/>}/>
 

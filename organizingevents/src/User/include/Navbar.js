@@ -62,6 +62,9 @@ const Navbar = () => {
             <Link to="/dashboard" className="nav-link">Dashboard</Link>
           </li>
           )}
+          <li>
+          <Link to="/predictParticipants" className="nav-link">Predict Participants</Link>
+          </li>
         </ul>
       </div>
       <ToastContainer />
