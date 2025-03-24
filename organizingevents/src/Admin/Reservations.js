@@ -11,19 +11,21 @@ function Reservations() {
     setToggle(!toggle);
   };
 
-  const [Reservations,setReservations]=useState([]);
+  const [Reservations, setReservations] = useState([]);
   const [Id, setId] = useState("");
-  const [Name,setName] = useState("");
-  const [Surname,setSurname] = useState("");
-  const [Date,setDate] = useState("");
-  const [Price,setPrice] = useState("");
-  const [UserId,setUserId] = useState("");
-  const [EventId,setEventId] = useState("");
+  const [Name, setName] = useState("");
+  const [Surname, setSurname] = useState("");
+  const [reservationDate, setReservationDate] = useState(""); // Ndryshimi këtu
+  const [Price, setPrice] = useState("");
+  const [UserId, setUserId] = useState("");
+  const [EventId, setEventId] = useState("");
+
 
   const [alertMessage, setAlertMessage] = useState("");
   const [alertType, setAlertType] = useState("");
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(false);
+  const [selectedDate, setSelectedDate] = useState("");
 
   const toggleFormVisibility = () => {
     setIsFormVisible(!isFormVisible);
@@ -43,28 +45,33 @@ function Reservations() {
   async function loadReservations() {
     try {
       const result = await axios.get("https://localhost:7214/api/Reservation/GetAllList");
-      console.log(result.data)
       setReservations(result.data);
     } catch (err) {
       console.error("Error loading Users:", err);
     }
   }
 
+  const filteredReservations = selectedDate
+    ? Reservations.filter(reservation =>
+        new Date(reservation.reservationDate).toDateString() === new Date(selectedDate).toDateString()
+      )
+    : Reservations;
+
   async function save(e) {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
     try {
       await axios.post("https://localhost:7214/api/Reservation/AddReservation", {
         name: Name,
         surname: Surname,
-        reservationDate: Date,
+        reservationDate: reservationDate, // Ndryshimi këtu
         totalPrice: Price,
         userId: UserId,
-        eventId:EventId
+        eventId: EventId
       });
       showAlert("The reservation has been successfully done!", "alert-success");
       clearForm();
       setIsFormVisible(false);
-      loadReservations(); // Reload the users after saving
+      loadReservations();
     } catch (err) {
       showAlert(`Error: ${err.message}`, "alert-danger");
     }
@@ -74,9 +81,9 @@ function Reservations() {
     setId(reservation.reservationID);
     setName(reservation.name);
     setSurname(reservation.surname);
-    setDate(reservation.reservationDate);
+    setReservationDate(reservation.reservationDate); // Ndryshimi këtu
     setPrice(reservation.totalPrice);
-    setUserId(reservation.userID)
+    setUserId(reservation.userID);
     setEventId(reservation.eventID);
     setIsFormVisible(true);
   }
@@ -85,20 +92,19 @@ function Reservations() {
     try {
       await axios.delete(`https://localhost:7214/api/Reservation/DeleteReservation/${reservationId}`);
       showAlert("The reservation has been successfully deleted!", "alert-success");
-      loadReservations(); // Reload the reservations after deleting
+      loadReservations();
     } catch (err) {
       showAlert(`Error: ${err.message}`, "alert-danger");
     }
   }
 
   async function update(e) {
-    e.preventDefault(); // Prevent default form submission
-
+    e.preventDefault();
     try {
       await axios.put(`https://localhost:7214/api/Reservation/UpdateReservation/${Id}`, {
         name: Name,
         surname: Surname,
-        reservationDate: Date,
+        reservationDate: reservationDate, // Ndryshimi këtu
         totalPrice: Price,
         userId: UserId,
         eventId: EventId
@@ -106,7 +112,7 @@ function Reservations() {
       showAlert("The reservation has been successfully updated!", "alert-success");
       clearForm();
       setIsFormVisible(false);
-      loadReservations(); // Reload the reservations after update
+      loadReservations();
     } catch (err) {
       showAlert(`Error: ${err.response ? err.response.data : err.message}`, "alert-danger");
     }
@@ -116,11 +122,30 @@ function Reservations() {
     setId("");
     setName("");
     setSurname("");
-    setDate("");
+    setReservationDate(""); // Ndryshimi këtu
     setPrice("");
-    setUserId("")
+    setUserId("");
     setEventId("");
   }
+
+
+  async function exportReservations() {
+    try {
+      const response = await axios.get("https://localhost:7214/api/Reservation/ExportReservationsToExcel", {
+        responseType: 'blob', // Përdorim blob për skedarin
+      });
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'Reservations.xlsx'); // Emri i skedarit
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (err) {
+      console.error("Error exporting reservations:", err);
+    }
+  }
+
 
   function showAlert(message, type) {
     setAlertMessage(message);
@@ -128,7 +153,7 @@ function Reservations() {
     setIsAlertVisible(true);
     setTimeout(() => {
       setIsAlertVisible(false);
-    }, 4000); // Hide the alert after 4 seconds
+    }, 4000);
   }
 
   return (
@@ -152,7 +177,7 @@ function Reservations() {
           <Navbar Toggle={Toggle} />
 
           <div className="d-flex justify-content-between align-items-center mt-4 px-5">
-            <h4 className="text-dark">Data for Users</h4>
+            <h4 className="text-dark">Data for Reservations</h4>
             <button className="btn btn-add d-flex align-items-center" onClick={toggleFormVisibility}>
               <i className="fas fa-plus me-2"></i>
               Add
@@ -192,8 +217,8 @@ function Reservations() {
                     type="date"
                     className="form-control mb-3"
                     id="date"
-                    value={Date}
-                    onChange={(e) => setDate(e.target.value)}
+                    value={reservationDate} // Ndryshimi këtu
+                    onChange={(e) => setReservationDate(e.target.value)} // Ndryshimi këtu
                   />
                 </div>
 
@@ -251,11 +276,30 @@ function Reservations() {
             </div>
           )}
 
+
+          <div className="mt-4 px-5 reservation-date">
+            <label htmlFor="reservationDate" className="label">Select Date:</label>
+            
+            <input
+              type="date"
+              id="reservationDate"
+              className="form-control mb-3"
+              value={selectedDate}
+              onChange={(e) => setSelectedDate(e.target.value)}
+            />
+
+            
+              <button className="btn btn-export-excel ms-1" onClick={exportReservations}>
+                  Export to Excel
+                  <i className="fas fa-file-excel ms-2"></i>
+                </button>
+          </div>
+
           <div className="table-responsive m-4 px-4">
             <table className="table border-gray">
               <thead>
                 <tr>
-                  <th scope="col">Id</th>
+                <th scope="col">Id</th>
                   <th scope="col">Name</th>
                   <th scope="col">Surname</th>
                   <th scope="col">Reservation Date</th>
@@ -266,8 +310,8 @@ function Reservations() {
                 </tr>
               </thead>
               <tbody>
-                {Reservations.map((reservation) => (
-                  <tr key={reservation.id}>
+                {filteredReservations.map((reservation, index) => (
+                  <tr key={index}>
                     <td>{reservation.reservationID}</td>
                     <td>{reservation.name}</td>
                     <td>{reservation.surname}</td>
@@ -281,8 +325,8 @@ function Reservations() {
                         className="btn btn-edit mx-2 d-flex align-items-center"
                         onClick={() => editReservation(reservation)}
                       >
-                        <i className="fas fa-edit"></i>
-                        <span className="ms-2">Edit</span>
+                         <i className="fas fa-edit"></i>
+                         <span className="ms-2">Edit</span>
                       </button>
                       <button
                         type="button"
@@ -305,3 +349,4 @@ function Reservations() {
 }
 
 export default Reservations;
+

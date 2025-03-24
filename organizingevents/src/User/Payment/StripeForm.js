@@ -1,9 +1,9 @@
-// StripeForm.js
 import React, { useEffect, useState } from 'react';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import './StripeForm.css';
+import paypal from './paypal.jpg';
 
 export default function StripeForm() {
   const stripe = useStripe();
@@ -35,7 +35,6 @@ export default function StripeForm() {
     const cardElement = elements.getElement(CardElement);
 
     try {
-      // Krijo një Payment Intent në server
       const response = await fetch('https://localhost:7214/api/Stripe/CreatePaymentIntent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -44,7 +43,6 @@ export default function StripeForm() {
 
       const { clientSecret } = await response.json();
 
-      // Konfirmo pagesën me Stripe
       const paymentResult = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: cardElement,
@@ -58,15 +56,12 @@ export default function StripeForm() {
         toast.error(paymentResult.error.message);
       } else {
         if (paymentResult.paymentIntent.status === 'succeeded') {
-          // Vendosni gjendjen e pagesës si të suksesshme
           setPaymentSuccess(true);
-          // Mund të hiqni të dhënat nga localStorage nëse dëshironi
           localStorage.removeItem('amount');
           localStorage.removeItem('paymentId');
-          // Navigoni te faqja kryesore pas një vonese
           setTimeout(() => {
             navigate('/');
-          }, 3000); // Navigon pas 3 sekondash
+          }, 2000); 
         }
       }
     } catch (error) {
@@ -75,36 +70,17 @@ export default function StripeForm() {
     }
   };
 
-  if (paymentSuccess) {
-    return (
-      <div className="stripeFormContainer">
-        <div className="stripeFormBox">
-          <h2>Payment Successful!</h2>
-          <p>Your payment was completed successfully.</p>
-          <p>You will be redirected to the home page shortly.</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="stripeFormContainer">
-      <div className="stripeFormBox">
-        <h2>Enter Payment Details</h2>
+  <div className="leftImageContainer">
+    {/* Kjo është hapësira për fotografinë e majtë */}
+  </div>
+
+  <div className="rightFormContainer">
+    <div className="stripeFormBox">
+      <h2>Pay With Card</h2>
+      {!paymentSuccess ? (
         <form onSubmit={handleSubmit}>
-          <div className="inputContainerStripe">
-            <label>Description</label>
-            <input
-              type="text"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
-          </div>
-          <div className="inputContainerStripe">
-            <label>Amount</label>
-            <input type="number" value={amount} readOnly />
-          </div>
           <div className="inputContainerStripe">
             <label>Email</label>
             <input
@@ -115,15 +91,40 @@ export default function StripeForm() {
             />
           </div>
           <div className="inputContainerStripe">
+            <label>Description</label>
+            <input
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+            />
+          </div>
+          <div className="inputContainerStripe">
             <label>Card Details</label>
             <CardElement />
           </div>
+          <img src={paypal} alt="Payment Cards" className="cardImage" />
+          <div className="inputContainerStripe">
+            <label>Amount</label>
+            <input type="number" value={amount} readOnly />
+          </div>
+
           <button type="submit" className="inputButtonStripe" disabled={!stripe}>
             Submit Payment
           </button>
+
           <ToastContainer />
         </form>
-      </div>
+      ) : (
+        <div className="paymentSuccessMessage">
+          <h2>Your payment was completed successfully!</h2>
+          <p>Thank you for choosing us to bring your special day to life.</p>
+        </div>
+      )}
     </div>
+  </div>
+</div>
+
+
   );
 }
